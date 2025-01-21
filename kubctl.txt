@@ -1,0 +1,60 @@
+kubectl get pods -o wide ( lấy them thông tin của pod đó - đặc biệt là them thông tin cua cột )
+
+kubectl run nginx --image=redis ( tạo image redis voi pod là nginx )
+
+kubectl run nginx --image=redis -n finance ( cũng là tạo image redis với pod là nginx nhưng có them namespace là finance )
+
+kubectl describe pod {ten pod}
+
+kubectl describe pod {ten pod} | grep IMAGE: ( sau dấu gạch đứng là điều kiện lọc của pod )
+
+kubectl get pod --selector 'env=dev' --all-namespace ( lấy tất cả các pod ở tất cả namespace có env = dev )
+
+
+kubectl get pod --selector 'env=dev' --all-namespace --no-headers ( ý nghĩa là bỏ dòng đầu header title khi show ) | wc -l ( lọc ra đếm số lương row pod )
+
+
+kubectl get pod --selector 'env=dev,bu=finance,tier=frontend' --all-namespace --no-headers | wc -l
+
+ls -la ( kiểm tra file trong kubectl ) câu lệnh này check kiểm ra file ở Linux tất cả
+
+kubectl apply -f {tenfile.yaml} ( apply file trong k8s )
+
+kubectl get namespace hoặc là kubeclt get ns
+
+kubectl get ns --no-headers | wc -l ( đếm số namespace hiện có )
+
+kubectl get pod -n research ( lấy ra các pods có namespace là research )
+
+kubectl get all --all-namespace | grep pod
+
+kubectl get deployments
+
+kubectl get replicaset
+
+kubectl get deployment deployment-1 -o yaml > httpd.yaml ( xuất file deployment có tên là deployment-1 từ file yaml sang file httpd.yaml để kiểm tra ) 
+
+kubectl get configmap hoặc viết là kubectl get cm
+
+kubectl create -f {tenfileconfigmap.yaml}
+
+kubectl apply -f {tenfile.yaml}
+
+kubectl get secret	
+
+kubectl get secret {ten secret} -o yaml
+
+kubectl create secret generic db-secret --from-literal DB_HOST=sql01 --from-literal DB_USER=root --from-literal DB_PASSWORD=password123
+
+
+trong Service targetPort à port của container
+port là port dành cho backend services ( trên SERVICE )
+nodepPort ở ngoài gọi vào 
+
+có 3 loại port chinh đó là NodePort ( ánh xã tang network layer) , ClusterIp (dành cho nội bộ ) , LoadBalancer ( dành cho cloud )
+
+kubectl get svc
+
+kubectl get endpoints
+
+
