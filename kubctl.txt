@@ -46,6 +46,8 @@ kubectl get secret
 
 kubectl get secret {ten secret} -o yaml
 
+kubectl get roles -A
+
 kubectl create secret generic db-secret --from-literal DB_HOST=sql01 --from-literal DB_USER=root --from-literal DB_PASSWORD=password123
 
 
