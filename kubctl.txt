@@ -26,6 +26,8 @@ kubectl get ns --no-headers | wc -l ( đếm số namespace hiện có )
 
 kubectl get pod -n research ( lấy ra các pods có namespace là research )
 
+kubectl get svc -A ( -A ở đây có nghĩa all namespace )
+
 kubectl get all --all-namespace | grep pod
 
 kubectl get deployments
